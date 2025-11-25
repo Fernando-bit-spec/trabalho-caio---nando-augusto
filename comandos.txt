@@ -62,6 +62,13 @@ python manage.py startapp <nome_aplicativo>
 python manage.py makemigrations
 python manage.py migrate
 
+
+#########################
+pip install djangorestframework
+pip install django-cors-headers
+################################
+
+
 ###############################################
 # Criar usuário para o sistema administrativo #
 ###############################################
