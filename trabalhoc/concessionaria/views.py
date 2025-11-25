@@ -10,3 +10,4 @@ class CarroSerializer(serializers.ModelSerializer):
 class CarroViewSet(viewsets.ModelViewSet):
     queryset = Carro.objects.all()
     serializer_class = CarroSerializer
+
