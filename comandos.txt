@@ -1,0 +1,85 @@
+##################################################
+# Adicione o atalho de teclado abaixo Ctrl+Enter #
+# que executa o comando no terminal e vai para a #
+# próxima linha não comentada:                   #
+##########################################################
+# <F1>: okjs e adicione o comando abaixo da linha 8 a 25 #
+##########################################################
+    {
+        "key": "ctrl+enter",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.terminal.runSelectedText",
+                {
+                    "command": "editor.actions.findWithArgs",
+                    "args": {
+                        "searchString": "^(?=[^#])",
+                        "isRegex": true
+                    }
+                },
+                "editor.action.nextMatchFindAction",
+                "closeFindWidget"
+            ],
+            "when": "editorFocus"
+        }
+    }
+
+
+######################
+# Instalar extensões #
+######################
+code --install-extension usernamehw.errorlens
+code --install-extension zhuangtongfa.material-theme
+code --install-extension PKief.material-icon-theme
+code --install-extension batisteo.vscode-django
+mkdir -fo .vscode
+echo '{"emmet.includeLanguages": {"django-html": "html"}}' | sc ".vscode/settings.json"
+
+###########################################
+# Criar ambiente no python e ativar       #
+# <F1>: criar ambiente ou o código abaixo #
+###########################################
+python -m venv .venv
+. .\.venv\Scripts\Activate.ps1
+
+#######################################
+# Criar o requirements.txt com django #
+#######################################
+pip install django pillow
+pip install -r requirements.txt
+pip freeze > requirements.txt
+
+####################
+# Inicia o projeto #
+####################
+django-admin startproject <projeto> .
+python manage.py startapp <nome_aplicativo>
+
+##########################################################
+# Atualiza banco de dados (sempre que mudar o models.py) #
+##########################################################
+python manage.py makemigrations
+python manage.py migrate
+
+###############################################
+# Criar usuário para o sistema administrativo #
+###############################################
+python manage.py createsuperuser
+
+###############
+# Iniciar git #
+###############
+git init
+git config --global user.name fernando
+git config --global user.email fdsantosj15@gmail.com
+echo ".venv" | ac .gitignore
+git add .
+git commit -m "Primeiro commit"
+
+#####################
+# Inicia o servidor #
+#####################
+python manage.py runserver
+# Pára o servidor (CTRL + C)
+

@@ -1,0 +1,16 @@
+{
+  "count": 12,
+  "next": "http://127.0.0.1:8000/carros/?page=2",
+  "previous": null,
+  "results": [
+    {
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "ano": 2020,
+      "preco": 95000,
+      "foto": "http://127.0.0.1:8000/media/corolla.jpg",
+      "criado_em": "2025-02-16T23:10:45.345000Z",
+      "url": "http://127.0.0.1:8000/carros/1/"
+    }
+  ]
+}
